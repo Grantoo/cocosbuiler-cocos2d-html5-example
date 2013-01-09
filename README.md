@@ -11,12 +11,15 @@ A small batch file which launches a python simple server is included (should be 
 
 using a browser (tested on firefox and chrome and safari) enter the following to see how the code pulls in the assets. 
 
-http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=320&screenD2=480
-http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=768&screenD2=1024
-http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=480&screenD2=320
-http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=1024&screenD2=768
+<a href='http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=320&screenD2=480'>http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=320&screenD2=480</a>
 
-http://localhost:8000/project/index.html is equivalent to the small landscape size and orientation
+<a href='http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=768&screenD2=1024'>http://localhost:8000/project/index.html?gameOrientation=portrait&screenD1=768&screenD2=1024</a>
+
+<a href='http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=480&screenD2=320'>http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=480&screenD2=320</a>
+
+<a href='http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=1024&screenD2=768'>http://localhost:8000/project/index.html?gameOrientation=landscape&screenD1=1024&screenD2=768</a>
+
+<a href='http://localhost:8000/project/index.html'>http://localhost:8000/project/index.html</a> is equivalent to the small landscape size and orientation
 
 Screens show a variety of images and buttons and animations. On the game scene a ScrollView is shown with items added which are widgets created in CocosBuilder as well. Each layout is controlled separately and can be found in the two cocosbuilder projects (small and large are separated to allow content providers to have WYSIWYG). Because the ScrollView contents are built dynamically (although the content is provided via cocosbuilder) it uses a proxy ccnode for its location and size.
 
