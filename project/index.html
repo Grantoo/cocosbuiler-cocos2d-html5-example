@@ -1,0 +1,62 @@
+<!--/* http://www.grantoo.org-->
+<!--*-->
+<!--* Copyright (c) 2013 Grantoo, LLC. All rights reserved.-->
+<!--*-->
+<!--*/-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cocos2d-html5 Hello World test</title>
+    <link rel="icon" type="image/GIF" href="Resources/favicon.ico"/>
+    <script type="text/javascript" src="Resources/lib/es5-shim.min.js"></script>
+    <script type="text/javascript" src="Resources/lib/zepto.min.js"></script>
+    <script type="text/javascript">
+        // get params from URL
+        var urlParams = {};
+        var match,
+            pl     = /\+/g,  // Regex for replacing addition symbol with a space
+            search = /([^&=]+)=?([^&]*)/g,
+            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+            query  = window.location.search.substring(1);
+
+        while (match = search.exec(query)) {
+            urlParams[decode(match[1])] = decode(match[2]);
+        }
+
+        // dynamic canvas sizing
+        var width = 480, // default
+            height = 320; // default
+        if (urlParams.gameOrientation && urlParams.screenD1 && urlParams.screenD2) {
+            if (parseInt(urlParams.screenD1) < 750 && parseInt(urlParams.screenD2) < 750) {
+                if (urlParams.gameOrientation == 'portrait') {
+                    width = 320;
+                    height = 480;
+                }
+            } else {
+                if (urlParams.gameOrientation == 'portrait') {
+                    width = 768;
+                    height = 1024;
+                } else {
+                    width = 1024;
+                    height = 768;
+                }
+            }
+        }
+
+        $('document').ready(function() {
+            var $canvas = $("#gameCanvas");
+            $canvas[0].width = width;
+            $canvas[0].height = height;
+        });
+
+    </script>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<div style="text-align: center; font-size: 0">
+    <canvas id="gameCanvas" height="100" width="100"></canvas>
+</div>
+</body>
+</html>
+<script src="cocos2d.js"></script>
